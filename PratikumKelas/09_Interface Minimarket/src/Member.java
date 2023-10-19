@@ -1,4 +1,3 @@
-package id.ac.unand.fti.si.pbo;
 
 public abstract class Member implements CanGetDiskon, CanGetPoin{
     protected Integer poin = 0;
