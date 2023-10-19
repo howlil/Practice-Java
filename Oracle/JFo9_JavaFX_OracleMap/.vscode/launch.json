@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CampusMap",
+            "request": "launch",
+            "mainClass": "CampusMap",
+            "projectName": "JFo9_JavaFX_OracleMap_d4ec6ffb"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "JFo9_JavaFX_OracleMap_d4ec6ffb",
+            "vmArgs": " --module-path \"C:/Program Files/Java/openjfx-17.0.9_windows-x64_bin-sdk/javafx-sdk-17.0.9/lib\" --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
