@@ -7,7 +7,7 @@ public class Invoice extends Barang implements Penjualan {
         super(namaBrg, harga);
         this.noFaktur = noFaktur;
         this.namaPelanggan = namaPelanggan;
-        if (jumlah <= 0 || jumlah > 1000) {
+        if (jumlah <= 0 || jumlah > 100) {
             throw new IllegalArgumentException("Invalid quantity: " + jumlah);
         }
         this.jumlah = jumlah;
