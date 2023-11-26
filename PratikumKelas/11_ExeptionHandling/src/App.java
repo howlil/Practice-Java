@@ -4,6 +4,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        try{
         
             System.out.print("Masukan Nama Barang: ");
             String namaBarang = scanner.nextLine();
@@ -11,19 +12,18 @@ public class App {
             System.out.print("Masukan Harga Barang : ");
             double harga = scanner.nextDouble();
 
-            scanner.nextLine(); // Consume newline left-over
+            scanner.nextLine(); 
 
             System.out.print("Masukan Diskon (0 jika tidak ada): " );
             double nilaiDiskon = scanner.nextDouble();
 
-            scanner.nextLine(); // Consume newline left-over
+            scanner.nextLine(); 
             Barang produk = new Diskon(namaBarang, harga, nilaiDiskon);
-
+        
             if(nilaiDiskon ==0){
                 try {
            
-                scanner.nextLine(); // Consume newline left-over
-
+                scanner.nextLine(); 
                 System.out.print("Masukkan Nomor Faktur: ");
                 String noFaktur = scanner.nextLine();
 
@@ -33,6 +33,7 @@ public class App {
                 System.out.print("Masukkan Jumlah: ");
                 int jumlah = scanner.nextInt();
 
+                //polimorpisme
                 Barang produk2 = new Invoice(namaBarang, harga, noFaktur, namaPelanggan, jumlah);
 
                 System.out.println("\nJenis Produk: " + produk2.getJenisProduk());
@@ -40,9 +41,7 @@ public class App {
                 System.out.println("Harga: Rp" + harga);
                 System.out.println("Nomor Faktur: " + ((Invoice) produk2).getNoFaktur());
                 System.out.println("Nama Pelanggan: " + ((Invoice) produk2).getNamaPelanggan());
-                System.out.println("Jumlah: " + ((Invoice) produk2).getJumlah());
-
-          
+                System.out.println("Jumlah: " + ((Invoice) produk2).getJumlah());    
 
                 } catch (Exception e) {
                     System.out.println("Error: " + e.getMessage());
@@ -67,11 +66,15 @@ public class App {
                 System.out.println("Error: " + e.getMessage());
             }
 
-            finally {
-                scanner.close();
-            }
+          
         }
-            }       
-
+               
+         }catch(Exception e){
+           System.out.println("Error: " + e.getMessage());
+        } 
+        finally{
+            scanner.close();
+        }
     }
+}
 
