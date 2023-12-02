@@ -2,9 +2,13 @@ public class Invoice extends Barang implements Penjualan {
     private String noFaktur;
     private String namaPelanggan;
     private int jumlah;
+    private String noHP;
+    private String alamat;
 
-    public Invoice(String namaBrg, double harga, String noFaktur, String namaPelanggan, int jumlah) {
+    public Invoice(String noHP,String alamat, String namaBrg, double harga, String noFaktur, String namaPelanggan, int jumlah) {
         super(namaBrg, harga);
+        this.noHP = noHP;
+        this.alamat = alamat;
         this.noFaktur = noFaktur;
         this.namaPelanggan = namaPelanggan;
         if (jumlah <= 0 || jumlah > 100) {
