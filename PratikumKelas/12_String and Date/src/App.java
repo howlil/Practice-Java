@@ -72,4 +72,4 @@ public class App {
     }
 }
 
-// Kelas lainnya (Barang, Diskon, Invoice, Penjualan, ProdukDiskon) tetap seperti yang Anda berikan.
+
