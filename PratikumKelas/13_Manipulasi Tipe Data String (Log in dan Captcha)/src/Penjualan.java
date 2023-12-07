@@ -1,0 +1,3 @@
+interface Penjualan {
+    double hitungTotalBayar();
+}
