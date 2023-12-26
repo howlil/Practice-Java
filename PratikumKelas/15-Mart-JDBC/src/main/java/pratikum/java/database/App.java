@@ -164,14 +164,17 @@ public class App
 
     private static void printStruk(Struk struk, String namaBarang, double hargaSatuan, int jumlahBeli) {
         SimpleDateFormat sdf = new SimpleDateFormat("E, dd/MM/yyyy HH:mm:ss");
-        System.out.println("\nSTRUK TRANSAKSI");
+        System.out.println("\n\nSUPERMARKET INDIGOS");
         System.out.println("Tanggal: " + sdf.format(new Date()));
+        System.out.println("DATA PEMBELIAN BARANG");
+        System.out.println("---------------------");
         System.out.println("Nama Pembeli: " + struk.getNamaPembeli());
         System.out.println("Nama Barang: " + namaBarang);
         System.out.println("Harga Satuan: " + hargaSatuan);
         System.out.println("Jumlah Beli: " + jumlahBeli);
         System.out.println("Total Harga: " + struk.getTotalHarga());
         System.out.println("Terima Kasih!");
+        System.out.println("+++++++++++++++++++++");
     }
 }
  
