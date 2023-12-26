@@ -92,4 +92,44 @@ public class Database {
             connection.close();
         }
     }
+
+    public void sellBarang(int barangId, int jumlahBeli, String namaPembeli) throws SQLException {
+        connection.setAutoCommit(false);
+        Savepoint savepoint = connection.setSavepoint();
+    
+        try {
+            Barang barang = getBarangByID(barangId);
+            if (barang == null) {
+                throw new SQLException("Barang tidak ditemukan");
+            }
+    
+            if (barang.getStok() < jumlahBeli) {
+                throw new SQLException("Stok tidak cukup");
+            }
+    
+            int stokBaru = barang.getStok() - jumlahBeli;
+            updateBarangStok(barangId, stokBaru);
+    
+            double totalHarga = barang.getHarga() * jumlahBeli;
+            Struk struk = new Struk(namaPembeli, barangId, totalHarga, jumlahBeli);
+            addStruk(struk);
+    
+            connection.commit();
+        } catch (SQLException e) {
+            connection.rollback(savepoint);
+            throw e;
+        } finally {
+            connection.setAutoCommit(true);
+        }
+    }
+    
+    private void updateBarangStok(int barangId, int stokBaru) throws SQLException {
+        String query = "UPDATE barang SET stok = ? WHERE id = ?;";
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setInt(1, stokBaru);
+            pstmt.setInt(2, barangId);
+            pstmt.executeUpdate();
+        }
+    }
+    
 }

@@ -33,7 +33,7 @@ public class App
             System.out.println("\nMenu:");
             System.out.println("1. Tambah Barang");
             System.out.println("2. Lihat Semua Barang");
-            System.out.println("3. Ubah Barang");
+            System.out.println("3. Update Barang");
             System.out.println("4. Hapus Barang");
             System.out.println("5. Transaksi");
             System.out.println("6. Keluar");
@@ -60,16 +60,6 @@ public class App
     }
 
 
-    private static void showMenu() {
-        System.out.println("\nMenu:");
-        System.out.println("1. Tambah Barang");
-        System.out.println("2. Lihat Semua Barang");
-        System.out.println("3. Ubah Barang");
-        System.out.println("4. Hapus Barang");
-        System.out.println("5. Transaksi");
-        System.out.println("6. Keluar");
-        System.out.print("Pilih opsi: ");
-    }
 
     private static void addBarang() {
         System.out.println("Masukkan detail barang:");
@@ -150,7 +140,12 @@ public class App
         scanner.nextLine(); // Consume newline
 
         try {
-            Barang barang = dbHelper.getBarangByID(barangID);
+           Barang barang = dbHelper.getBarangByID(barangID); // Ambil data barang terbaru
+            dbHelper.sellBarang(barangID, jumlah, namaPembeli);
+           
+            double totalHarga = barang.getHarga() * jumlah;
+            Struk struk = new Struk(namaPembeli, barangID, totalHarga, jumlah);
+            printStruk(struk, barang.getNama(), barang.getHarga(), jumlah);
             if (barang == null) {
                 System.out.println("Barang tidak ditemukan.");
                 return;
@@ -160,10 +155,8 @@ public class App
                 return;
             }
 
-            double totalHarga = barang.getHarga() * jumlah;
-            Struk struk = new Struk(namaPembeli, barangID, totalHarga, jumlah);
-            dbHelper.addStruk(struk);
-            printStruk(struk, barang.getNama(), barang.getHarga(), jumlah);
+           
+
         } catch (SQLException e) {
             System.out.println("Gagal melakukan transaksi: " + e.getMessage());
         }
