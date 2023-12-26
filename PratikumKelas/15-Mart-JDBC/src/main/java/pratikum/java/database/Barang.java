@@ -1,34 +1,39 @@
 package pratikum.java.database;
 
-public class Barang{
-    private String namaBrg;
+public class Barang {
+    private int id;
+    private String nama;
     private double harga;
 
-
-    public Barang(String namaBrg, double harga) {
-        this.namaBrg = namaBrg;
+    public Barang(int id, String nama, double harga) {
+        this.id = id;
+        this.nama = nama;
         this.harga = harga;
     }
 
-    // Getters and setters
-    public String getNama() {
-        return namaBrg;
+    // Getters
+    public int getId() {
+        return id;
     }
 
-    public void setNama(String namaBrg) {
-        this.namaBrg = namaBrg;
+    public String getNama() {
+        return nama;
     }
 
     public double getHarga() {
         return harga;
     }
 
-    public void setHarga(double harga) {
-        this.harga = harga;
+    // Setters
+    public void setId(int id) {
+        this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Nama Barang: " + namaBrg + ", Harga: " + harga;
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public void setHarga(double harga) {
+        this.harga = harga;
     }
 }
