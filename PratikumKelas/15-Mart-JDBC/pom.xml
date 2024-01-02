@@ -18,15 +18,8 @@
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
-  <dependencies>
-<dependency>
-    <!-- JUnit Jupiter API untuk JUnit 5 -->
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.10.1</version>
-        <scope>test</scope>
-    </dependency>
+<dependencies>
+
 
     <!-- JUnit Jupiter Engine untuk JUnit 5 -->
     <dependency>
@@ -35,22 +28,18 @@
         <version>5.10.1</version>
         <scope>test</scope>
     </dependency>
-  <groupId>org.junit.jupiter</groupId>
-  <artifactId>junit-jupiter</artifactId>
-  <version>5.10.1</version>
-  <scope>test</scope>
-</dependency>
-<dependency>
-  <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.28</version>
-</dependency>
-<dependency>
-   <groupId>com.zaxxer</groupId>
-   <artifactId>HikariCP</artifactId>
-   <version>5.1.0</version>
-</dependency>
-  </dependencies>
+
+    <dependency>
+      <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
+    </dependency>
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>5.1.0</version>
+    </dependency>
+</dependencies>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
